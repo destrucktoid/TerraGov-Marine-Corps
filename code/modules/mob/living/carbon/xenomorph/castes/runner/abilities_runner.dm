@@ -331,6 +331,8 @@
 	stolen_item = victim.get_active_held_item()
 	if(!stolen_item)
 		stolen_item = victim.get_inactive_held_item()
+		if(HAS_TRAIT(stolen_item, TRAIT_NODROP))
+			stolen_item = NULL
 		for(var/slot in slots_to_steal_from)
 			stolen_item = victim.get_item_by_slot(slot)
 			if(stolen_item)
